@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+ {% block content %}
+ <div class="row">
+     <div class="h2 text-center py-3">My<b class="text-warning"> Profile <i class="fa fa-users"></i></b> </div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+          <div class="row">
+              <div class="col-sm-12">
+                  {% if signup %}
+                  {% for x in signup %}
+              <div class="card mb-3">
+          <div class="row g-0">
+      <div class="col-md-4">
+      <img src="/{{x.ppic}}" class="img-fluid rounded-start" alt="...">
+      </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title h2">{{x.name}}</h5>
+          <p class="card-text">
+              <b>DOB : </b>{{x.dob}}<br>
+              <b>Father Name :</b>{{x.father}}<br>
+              <b>Mother Name :</b>{{x.mother}}<br>
+              <b>Contact No:</b>{{x.contact}}<br>
+              <b>Email Id : </b>{{x.email}}<br>
+              <b>Password : </b>{{x.passwd}}<br>
+              <b>Address : </b>{{x.address}}<br>
+          </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+   {% endif %}
+          </div>
+              <div class="col-sm-12">
+                  <form method="post" autocomplete="off" enctype="multipart/form-data">
+                   {% csrf_token %}
+
+                          <div class="row">
+                          <div class="col-sm-12">
+               Name<input type="text" placeholder="Enter Your Name ..."  required class="form-control" name="name"/>
+               Father Name<input type="text" placeholder="Enter Your Father Name.." required class="form-control" name="father"/>
+               Mother Name<input type="text" placeholder="Enter Your Mother Name.." required class="form-control" name="mother"/>
+               Date of Birth<input type="date" required class="form-control" name="dob"/>
+
+               Contact Number<input type="number" placeholder="Enter Your Contact No..." required class="form-control" name="contact"/>
+               Profile Picture<input type="file" required class="form-control" name="fu"/>
+               Password <input type="password" placeholder="Enter Your Password..." required class="form-control" name="passwd"/>
+               Adrdress<textarea class="form-control" name="address" placeholder="Enter Your Address..." required></textarea>
+              <input type="submit" value="Register" class="btn btn-info"/>
+                          </div>
+                      </div>
+               </form>
+              </div>
+      </div>
+          </div>
+
+      <div class="3"></div>
+ </div>
+ {% endblock %}

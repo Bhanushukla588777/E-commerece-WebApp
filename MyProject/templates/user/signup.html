@@ -1,0 +1,31 @@
+ {% extends 'base.html' %}
+{% load static %}
+
+ {% block content %}
+ <style>
+     .form-control
+     {
+     margin-bottom:10px;
+     }
+ </style>
+ <div class="row">
+     <div class="col-sm-4"></div>
+        <div class="col-sm-4 p-5 bg-light">
+            <div class="h2 text-center"><b>Sign<b class="text-info">Up<i class="fa fa-users"></i></b></b></div>
+              <form method="post" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+               Name<input type="text" placeholder="Enter Your Name ..." required class="form-control" name="name"/>
+               Father Name<input type="text" placeholder="Enter Your Father Name.." required class="form-control" name="father"/>
+               Mother Name<input type="text" placeholder="Enter Your Mother Name.." required class="form-control" name="mother"/>
+               Date of Birth<input type="date" required class="form-control" name="dob"/>
+               Email <input type="text" placeholder="Enter Your Email.." required class="form-control" name="email"/>
+               Contact Number<input type="number" placeholder="Enter Your Contact No..." required class="form-control" name="contact"/>
+               Profile Picture<input type="file" required class="form-control" name="fu"/>
+               Password <input type="password" placeholder="Enter Your Password..." required class="form-control" name="passwd"/>
+               Adrdress<textarea class="form-control" name="address" placeholder="Enter Your Address..." required></textarea>
+              <input type="submit" value="Register" class="btn btn-info"/>
+               </form>
+            </div>
+     <div class="col-sm-4"></div>
+ </div>
+ {% endblock %}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet"/>
+    <style>
+        .t
+        {
+        min-height:35px;
+        text-align:center;
+        padding-top:3px;
+        }
+
+        .ic
+        {
+        color:#F9A602;
+        border:1px solid #000000;
+        height:20px;
+        width:20px;
+        padding:1px;
+        border-radius:2px;
+         }
+         .ic:hover
+         {
+          background:#FFC30B;
+          color:#000000;
+          transition:all ease 1s;
+          transform:rotate(360deg);
+         }
+         .header1
+         {
+         min-height:55px;
+         }
+         .menu
+         {
+         min-height:45px;
+         background:#000000;
+         }
+
+         #menu ul li a
+         {
+         text-align:center;
+         color: white;
+         font-size:17px;
+
+         }
+         .newproduct
+         {
+         min-height:500px;
+         background:#8697af;
+         }
+
+         * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #eee;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.our-services {
+    margin-top: 75px;
+    padding-bottom: 30px;
+    padding: 0 60px;
+    min-height: 198px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all .4s ease-in-out;
+    box-shadow: 0 0 25px 0 rgba(20, 27, 202, .17);
+}
+
+.our-services .icon {
+    margin-bottom: -21px;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.our-services:hover h4,
+.our-services:hover p {
+    color: #fff;
+}
+.speedup:hover{
+    box-shadow;0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fb0054 0%, #f55b2a 100%);
+}
+.settings:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #34b5bf 0%, #210c59 100%);
+}
+
+.privacy:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #3615e7 0%, #44a2f6 100%);
+}
+
+.backups:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fc6a0e 0%, #fdb642 100%);
+}
+
+.ssl:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #8d40fb 0%, #5a57fb 100%);
+}
+
+.database:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #27b88d 0%, #22dd73 100%);
+}
+
+        .ufooter
+         {
+         min-height:300px;
+         background:#000000;
+         }
+
+         .bfooter
+         {
+         min-height:40px;
+         margin-top:1px;
+         background:#000000;
+         }
+    </style>
+</head>
+<body>
+<div class="container-fluid outer">
+    <div class="row t bg-light border-bottom pt-1">
+        <div class="col-sm-4 border-end">
+            {% if request.session.email %}
+            {{ request.session.email}}
+            {% endif %}
+      <i class="fa fa-phone ic"></i>+91-7007237006
+        </div>
+        <div class="col-sm-4 border-end">
+            <b style="color:#000000;"><b>WELCOME TO FAVCART INDIA Pvt.Ltd.</b></b>
+        </div>
+        <div class="col-sm-4">
+            <i class="fa fa-facebook ic"></i>
+            <i class="fa fa-youtube ic"></i>
+            <i class="fa fa-whatsapp ic" title="7007237006"></i>
+            <i class="fa fa-instagram ic"></i>
+            <i class="fa fa-twitter ic"></i>
+        </div>
+    </div>
+    <div class="row header1  py-2">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 fs-4">
+            <h2><b>  Fav<b style="color:#d8a9a7;">Cart India</b> <i class="fa fa-shopping-cart"></i></b></h2>
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2">
+             <b class="btn btn-outline-warning">
+            <i class="fa fa-shopping-cart"></i>{{noofitemsincart}}
+             </b>
+        </div>
+    </div>
+    <div class="row menu ">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 ps-5"></div>
+        <!-- start menu-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="menu">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/user/index"><i class="fa fa-home"></i><b style="color:#F9A602">Home</b></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/about"><i class="fa fa-address-card"></i><b style="color:#F9A602">About Us</b></a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/user/product"><i class="fa fa-product-hunt"></i><b style="color:#F9A602">
+                Products</b>
+            </a>
+          <ul class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/user/product"><b style="color:#000000">Men's</b></a></li>
+            <li><a class="dropdown-item" href="/user/product"><b style="color:#000000">Women's</b></a></li>
+            <li><a class="dropdown-item" href="/user/product"><b style="color:#000000">Kid's</b></a></li>
+          </ul></li>
+          <li class="nav-item">
+              <a class="nav-link" href="/user/contactus"><i class="fa fa-phone"></i><b style="color:#F9A602">Contact Us</b></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/user/signup"><i class="fa fa-registered"></i><b style="color:#F9A602">Sign Up</b></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/user/myorders"><i class="fa fa-sign-in"></i><b style="color:#F9A602">My Orders</b></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/user/myprofile"><i class="fa fa-user"></i><b style="color:#F9A602">My Profile</b></a>
+          </li>
+          {% if request.session.userid %}
+          <li class="nav-item">
+              <a class="nav-link" href="/user/logout"><i class="fa fa-sign-in"></i><b style="color:#F9A602">LogOut</b></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-user"></i><b style="color:#F9A602">{{request.session.userid}}</b></a>
+          </li>
+          {% else %}
+           <li class="nav-item">
+               <a class="nav-link" href="/user/signin"><i class="fa fa-sign-in"></i><b style="color:#F9A602">Sign In</b></a>
+          </li>
+
+          {% endif %}
+         </ul>
+         </div>
+         </div>
+        </nav>
+       </div>
+</div>
+
+        <!-- end menu-->
+        <div class="col-sm-2"></div>
+
+    <div class=" row content  " style="min-height:550px;">
+        <div class="col-sm-12 py-5">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+
+<div class="row ufooter" >
+    <div class="col-sm-3">
+          <!-- Footer -->
+        <footer class="page-footer font-small unique-color-dark"></footer>
+    </div>
+               <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+    <div class="row mt-3">
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold" style="color:#FFFFFF"><b>FavCart India Pvt Ltd.</b></h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p style="color:#FFFFFF">Accurate & Precise That Are Designed To Truly Stand The Test Of Time.
+            Buy 100% genuine titan lxury watches for men's women's and
+            also for kid's,Favcart India Pvt Ltd. Is most Trusted Company.
+            And Stay Protected From Fakes Companies Theft&Damage Insurance.</p>
+
+      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <h6 class="text-uppercase font-weight-bold"><b style="color:#FFFFFF">Products</b></h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#!"> Amazfit GTS2 Mini Smart Watch,Titan</a>
+        </p>
+        <p>
+          <a href="#!">Huawei GT 2Pro Bluetooth,Titan</a>
+        </p>
+        <p>
+          <a href="#!"> Fire-Boltt Ring Bluetooth, Titan</a>
+        </p>
+        <p>
+          <a href="#!">connected X Hybrid, Titan</a>
+        </p>
+
+      </div>
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <h6 class="text-uppercase font-weight-bold"><b style="color:#FFFFFF">Help & FAQs</b></h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#!">Online Ordering</a>
+        </p>
+        <p>
+          <a href="#!">Returns & Exchanges</a>
+        </p>
+        <p>
+          <a href="#!">Shipping Rates</a>
+        </p>
+          <p>
+          <a href="#!"> International Shipments</a>
+        </p>
+          <p>
+          <a href="#!">Contact Us</a>
+        </p>
+          <p>
+          <a href="#!"> Help to our Customer</a>
+        </p>
+      </div>
+      <div class="col-sm-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <h6 class="text-uppercase font-weight-bold"><b style="color:#FFFFFF">Contact Address</b></h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p style="color:#FFFFFF">
+          <i class="fa fa-home mr-3 ic"></i> New Delhi, india</p>
+        <p style="color:#FFFFFF">
+          <i class="fa fa-envelope ic"></i> favcartindia234@gmail.com</p>
+        <p style="color:#FFFFFF">
+          <i class="fa fa-phone-square ic "></i> +91-7007237006</p>
+        <p style="color:#FFFFFF">
+            <i class="fa fa-phone-square ic"></i> +91-7007237006</p>
+       <h6><b style="color:#FFFFFF">Stay Connected with Us On Social Networks</b></h6>
+            <i class="fa fa-facebook ic"></i>
+            <i class="fa fa-youtube ic"></i>
+            <i class="fa fa-whatsapp ic" title="7007237006"></i>
+            <i class="fa fa-instagram ic"></i>
+            <i class="fa  fa-twitter ic "></i>
+      </div>
+    </div>
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="color:#FFFFFF">© 2021 Copyright:
+    <a href="https://mdbootstrap.com/"> All rights reserved.</a>
+  </div>
+</div>
+  <!-- Copyright -->
+<!--b Footer -->
+        <div class=" row bfooter text-light text-center py-2">
+            <div class="col-sm-6">Developed By:ayushi srivastava</div>
+            <div class="col-sm-6">&copy;FavCart India Pvt Ltd.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ {% block content %}
+ <div class="row" style="min height:200px;">
+     <div class="h1 text-center"><b>Our<b style="color:#957DAD ;"> Products<i class="fa fa-product-hunt"></i></b></b></div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="row">
+                <div class="col-sm-3">
+                 <ul class="list-group">
+                     <li class="list-group-item active bg-warning" aria-current="true"><b>Our Brands</b></li>
+                     {% if cat %}
+                         {% for x in cat %}
+                         <a href="/user/product?abc={{x.id}}"> <li class="list-group-item">{{x.cname}}</li></a>
+                         {% endfor%}
+                     {% endif%}
+                    <a href="/user/product/" ><li class="list-group-item">All Brands</li></a>
+                 </ul>
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+                      {% if prod %}
+                       {% for x in prod %}
+                         <div class="col-sm-4 ">
+                           <div class="card w-100" >
+                           <img src="/{{x.ppic}}" class="card-img-top"  alt="...">
+                           <div class="card-body">
+                               <h5 class="card-title">{{x.category}}</h5>
+                               <p class="fs-3">{{x.name}}</p>
+                               <div style="height:20px;width:20px;border-radius:3px;background:{{x.color}};"></div>
+                               <b>Rs.</b> <s class=" btn btn-outline-danger">{{x.tprice}}/-</s><b class="btn btn-outline-success">{{x.disprice}}/-</b><br/>
+                               <a href="/user/prodetails?msg={{x.id}}" class="btn btn-primary rounded">Buy Now</a>
+                               <a href="#" class="btn btn-warning rounded"><i class="fa fa-shopping-cart"> Cart</i></a>
+               </div>
+             </div>
+           </div>
+           {% endfor %}
+           {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+ </div>
+ {% endblock %}
+ </div>
